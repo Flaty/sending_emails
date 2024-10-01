@@ -22,7 +22,7 @@ Subject: {title_l}
 Content-Type: text/plain; charset="UTF-8";
 '''.format(email_r = email_recipient, email_s = email_sender, title_l = title_letter )
 
-template_letter = '''Привет, %friend_name%! %my_name% приглашает тебя на сайт %website%!
+template_letter = '''\nПривет, %friend_name%! %my_name% приглашает тебя на сайт %website%!
 
 %website% — это новая версия онлайн-курса по программированию. 
 Изучаем Python и не только. Решаем задачи. Получаем ревью от преподавателя. 
@@ -51,5 +51,5 @@ full_letter = full_letter.encode("UTF-8")
 
 server = smtplib.SMTP_SSL('smtp.mail.ru:465')
 server.login(login,password)
-server.sendmail(login, 'hitomi.jpeg@gmail.com', full_letter)
+server.sendmail(email_recipient, email_sender, full_letter)
 server.quit()
